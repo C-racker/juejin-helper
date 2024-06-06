@@ -237,6 +237,7 @@ class CheckIn {
   async run() {
     const juejin = new JuejinHelper();
     try {
+      console.log("this.cookie :", this.cookie);
       await juejin.login(this.cookie);
     } catch (e) {
       console.error(e.message);
