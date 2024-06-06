@@ -29,9 +29,10 @@ class JuejinHelper {
   async login(cookie: string) {
     this.cookie.setCookieValue(cookie);
     this.cookieTokens = parseCookieTokens(this.cookie);
-    this.user = await api.get("/user_api/v1/user/get", {
+    const user = await api.get("/user_api/v1/user/get_info_pack", {
       headers: { cookie: this.getCookie() }
     });
+    this.user = user.user_basic;
   }
 
   async logout() {
